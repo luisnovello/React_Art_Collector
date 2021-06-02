@@ -187,7 +187,7 @@ const Feature = (props) => {
 
           {department ? (
             <Fragment>
-              <span className="title">epartment</span>
+              <span className="title">Department</span>
               <span className="content">{department}</span>
             </Fragment>
           ) : null}
