@@ -5,13 +5,11 @@ import { fetchQueryResultsFromURL } from "../api";
 const Preview = (props) => {
   const { setSearchResults, setFeaturedResult, setIsLoading } = props;
   const { info, records } = props.searchResults;
-  console.log("!!!!!!!!!!!!!!", info);
   async function fetchPage(pageUrl) {
     setIsLoading(true);
 
     try {
       const results = await fetchQueryResultsFromURL(pageUrl);
-      console.log("??????????????", results);
       setSearchResults(results);
     } catch (error) {
       console.error(error);

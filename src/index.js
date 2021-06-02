@@ -12,7 +12,6 @@ const App = () => {
     <div className="app">
       <Title />
       <Search setSearchResults={setSearchResults} setIsLoading={setIsLoading} />
-      ``
       <Preview
         searchResults={searchResults}
         setSearchResults={setSearchResults}
@@ -21,7 +20,7 @@ const App = () => {
       />
       {/* <Feature /> needs props for featuredResult, as well as setIsLoading and setSearchResults (clicking on searchable properties) */}
       <Feature
-        setFeaturedResult={setFeaturedResult}
+        featuredResult={featuredResult}
         setIsLoading={setIsLoading}
         setSearchResults={setSearchResults}
       />

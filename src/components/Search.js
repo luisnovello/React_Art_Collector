@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from "react";
 
-/**
- * Don't touch these imports!
- */
 import {
   fetchAllCenturies,
   fetchAllClassifications,
@@ -16,13 +13,6 @@ const Search = ({ setSearchResults, setIsLoading }) => {
   const [century, setCentury] = useState("any");
   const [classification, setClassification] = useState("any");
 
-  /**
-   * Inside of useEffect, use Promise.all([]) with fetchAllCenturies and fetchAllClassifications
-   *
-   * In the .then() callback pass the returned lists to setCenturyList and setClassificationList
-   *
-   * Make sure to console.error on caught errors from the API methods.
-   */
   useEffect(() => {
     Promise.all([fetchAllCenturies(), fetchAllClassifications()])
       .then(([centuries, classifications]) => {
@@ -32,22 +22,6 @@ const Search = ({ setSearchResults, setIsLoading }) => {
       .catch(console.error);
   }, []);
 
-  /**
-   * This is a form element, so we need to bind an onSubmit handler to it which:
-   *
-   * calls event.preventDefault()
-   * calls setIsLoading, set it to true
-   *
-   * then, in a try/catch/finally block:
-   *
-   * try to:
-   * - get the results from fetchQueryResults({ century, classification, queryString })
-   * - pass them to setSearchResults
-   *
-   * catch: error to console.error
-   *
-   * finally: call setIsLoading, set it to false
-   */
   return (
     <form
       id="search"
@@ -61,7 +35,6 @@ const Search = ({ setSearchResults, setIsLoading }) => {
             classification,
             queryString,
           });
-          console.log("AAAAAAAAAAAAAAAAAAAA", querySearchResults);
           setSearchResults(querySearchResults);
         } catch (error) {
           console.error(error);
